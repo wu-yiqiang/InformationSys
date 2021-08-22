@@ -1,0 +1,126 @@
+{
+  "index.html": {
+    "file": "assets/nested.44b64e33.js",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "index.html",
+      "_vendor.0cc29cd7.js"
+    ]
+  },
+  "_vendor.0cc29cd7.js": {
+    "file": "assets/vendor.0cc29cd7.js"
+  },
+  "src/views/Information/Information.vue": {
+    "file": "assets/Information.59227d2d.js",
+    "src": "src/views/Information/Information.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/components/NewsList/NewsList.vue",
+      "_vendor.0cc29cd7.js"
+    ]
+  },
+  "src/components/NewsList/NewsList.vue": {
+    "file": "assets/NewsList.1f958a84.js",
+    "src": "src/components/NewsList/NewsList.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor.0cc29cd7.js"
+    ],
+    "css": [
+      "assets/NewsList.1756be8c.css"
+    ]
+  },
+  "src/views/Video/index.vue": {
+    "file": "assets/index.93df82d0.js",
+    "src": "src/views/Video/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor.0cc29cd7.js"
+    ],
+    "css": [
+      "assets/index.ac356bac.css"
+    ]
+  },
+  "src/views/User/index.vue": {
+    "file": "assets/index.8dab224a.js",
+    "src": "src/views/User/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor.0cc29cd7.js"
+    ],
+    "css": [
+      "assets/index.db66d5eb.css"
+    ]
+  },
+  "src/views/Message/index.vue": {
+    "file": "assets/index.60f3836e.js",
+    "src": "src/views/Message/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor.0cc29cd7.js"
+    ]
+  },
+  "src/views/LiveBroadcast/index.vue": {
+    "file": "assets/index.2e1a8c21.js",
+    "src": "src/views/LiveBroadcast/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor.0cc29cd7.js"
+    ],
+    "css": [
+      "assets/index.db66d5eb.css"
+    ]
+  },
+  "src/views/Follow/index.vue": {
+    "file": "assets/index.ad173126.js",
+    "src": "src/views/Follow/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Follow/FollowDetail/index.vue": {
+    "file": "assets/index.c2307de0.js",
+    "src": "src/views/Follow/FollowDetail/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Search/index.vue": {
+    "file": "assets/index.d80989b7.js",
+    "src": "src/views/Search/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Upload/index.vue": {
+    "file": "assets/index.9a29f59b.js",
+    "src": "src/views/Upload/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor.0cc29cd7.js"
+    ],
+    "css": [
+      "assets/index.db66d5eb.css"
+    ]
+  },
+  "src/views/Upload/UploadArtical/index.vue": {
+    "file": "assets/index.2322dab9.js",
+    "src": "src/views/Upload/UploadArtical/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Upload/UploadImage/index.vue": {
+    "file": "assets/index.c94c6c49.js",
+    "src": "src/views/Upload/UploadImage/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Upload/UploadVideo/index.vue": {
+    "file": "assets/index.a03e1eaa.js",
+    "src": "src/views/Upload/UploadVideo/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Nearby/index.vue": {
+    "file": "assets/index.2de37ccd.js",
+    "src": "src/views/Nearby/index.vue",
+    "isDynamicEntry": true
+  },
+  "src/views/Nearby/NearbyDetail/index.vue": {
+    "file": "assets/index.09265875.js",
+    "src": "src/views/Nearby/NearbyDetail/index.vue",
+    "isDynamicEntry": true
+  }
+}

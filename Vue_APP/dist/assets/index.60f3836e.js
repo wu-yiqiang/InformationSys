@@ -1,0 +1,1 @@
+import{d as a,r as s,T as c,p as e,a as o,o as t,c as d,w as n}from"./vendor.0cc29cd7.js";var r=a({name:"Home",components:{},data(){},setup:()=>({count:s(0),onCancel:()=>c("取消"),active:s(0)})});const p=n();e("data-v-5c66e8b2");const v={class:"Video"};o();const m=p(((a,s,c,e,o,n)=>(t(),d("div",v," 消息 "))));r.render=m,r.__scopeId="data-v-5c66e8b2";export default r;
