@@ -1,1 +1,0 @@
-import{d as e,w as o}from"./vendor.0cc29cd7.js";var a=e({name:"Login",components:{},setup(){}});const r=o()(((e,o,a,r,s,t)=>" liveBrocast "));a.render=r,a.__scopeId="data-v-24827e4a";export default a;
