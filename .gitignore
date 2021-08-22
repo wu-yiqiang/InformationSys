@@ -6,7 +6,11 @@ bin-release/
 
 # Other files and folders
 .settings/
+Vue_APP/node_modules/
+Vue_APP/dist/
 
+Administrator/node_modules/
+Administrator/dist/
 # Executables
 *.swf
 *.air
