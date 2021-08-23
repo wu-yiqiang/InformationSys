@@ -5,7 +5,6 @@ import (
 	"log"
 	register "logc/controllers/register"
 	_ "logc/routers"
-
 	"github.com/astaxie/beego"
 )
 
