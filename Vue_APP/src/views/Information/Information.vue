@@ -42,11 +42,10 @@ export default defineComponent({
     let userChannel = [
       '推荐',
       '热点',
-      '美食',
-      '健康',
+      '国际',
       '财经',
       '科技',
-      '游戏'
+      '历史',
     ];
     const onCancel = () => Toast('取消');
     let getInformation=async ()  => {

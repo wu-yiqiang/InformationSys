@@ -1,8 +1,8 @@
 -- 删除数据库
-DROP DATABASE vite_app;
+DROP DATABASE InformationSys;
 -- 创建数据库
-CREATE DATABASE vite_app;
-USE vite_app;
+CREATE DATABASE informationSys;
+USE informationSys;
 
 -- 创建推荐表
 CREATE TABLE IF NOT EXISTS `news_Recommend_tb` (
