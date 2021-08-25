@@ -9,8 +9,8 @@ bin-release/
 Vue_APP/node_modules/
 Vue_APP/dist/
 
-Administrator/node_modules/
-Administrator/dist/
+Vue3-Element-Admin/node_modules/
+Vue3-Element-Admin/dist/
 # Executables
 *.swf
 *.air
