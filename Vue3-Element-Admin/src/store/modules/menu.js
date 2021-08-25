@@ -53,7 +53,6 @@ const getFilterRoutes = (targetRoutes, ajaxRoutes) => {
 
 const getFilterMenus = (arr, parentPath = '') => {
   const menus = []
-
   arr.forEach(item => {
     if (!item.hidden) {
       const menu = {
@@ -94,7 +93,6 @@ export default {
       // 方式二：有动态菜单
       // 从后台获取菜单
       const { code, data } = await GetMenus({ role: userinfo.role })
-
       if (+code === 200) {
         // 过滤出需要添加的动态路由
         const filterRoutes = getFilterRoutes(asyncRoutes, data)
