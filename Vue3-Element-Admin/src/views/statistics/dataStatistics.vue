@@ -1,6 +1,6 @@
 <template>
-  <div class="userStatistic">
-    用户群体统计图 用户年龄统计图 用户性别统计图 用户 用户
+  <div class="template">
+    数据统计
   </div>
 </template>
 <script>
@@ -23,4 +23,5 @@ export default defineComponent({
   },
 })
 </script>
+
 <style lang="scss" scoped></style>

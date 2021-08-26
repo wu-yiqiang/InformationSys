@@ -2,8 +2,11 @@
 const Layout = () => import('@/layout/index.vue')
 const Home = () => import('@/views/home/index.vue')
 // 数据统计模块
-const Statistics = () => import('@/views/statistics/index.vue')
-const userStatistics = () => import('@/views/statistics/userStatistics.vue')
+// const Statistics = () => import('@/views/statistics/index.vue')
+const Userstatistics = () => import('@/views/statistics/userStatistics.vue')
+const Datastatistics = () => import('@/views/statistics/dataStatistics.vue')
+// 导入SVG图片
+const UserstatisticsSVG = () => '@/'
 export default [
   {
     path: '/home',
@@ -27,19 +30,27 @@ export default [
   },
   {
     path: '/Statistics',
-    component: Statistics,
+    component: Layout,
     name: 'Statistics',
     meta: {
       title: '数据统计',
     },
-    icon: 'el-icon-more',
+    icon: 'el-icon-delete-solid',
     children: [
       {
         path: '/userStatistics',
         name: 'userStatistics',
-        component: userStatistics,
+        component: Userstatistics,
         meta: {
           title: '用户统计',
+        },
+      },
+      {
+        path: '/dataStatistics',
+        name: 'dataStatistics',
+        component: Datastatistics,
+        meta: {
+          title: '数据统计',
         },
       },
     ],
