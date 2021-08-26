@@ -68,10 +68,13 @@ Object.entries(Components).forEach(([key, component]) => {
 import useErrorHandler from './error-log'
 useErrorHandler(app)
 
+// echarts图表
+import * as echarts from 'echarts'
 app
   .use(ElementPlus, {
     locale,
   })
   .use(store)
   .use(router)
+  .use(echarts)
   .mount('#app')
