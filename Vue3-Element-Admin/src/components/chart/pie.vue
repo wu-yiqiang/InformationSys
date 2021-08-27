@@ -6,13 +6,13 @@ import { defineComponent, onMounted, ref } from 'vue'
 // 导入echarts
 import * as echarts from 'echarts'
 export default defineComponent({
-  name: 'barChart',
+  name: 'pieChart',
   components: {},
   props: {
-    id: {
+    ids: {
       required: true,
     },
-    echarts: {
+    echartss: {
       required: true,
     },
     width: {
@@ -23,7 +23,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const name = props.id
+    const name = props.ids
     console.log(name)
     // 初始化echarts
     let initChart = () => {
@@ -36,17 +36,37 @@ export default defineComponent({
         let myChart = echarts.init(document.getElementById(name))
         // 绘制图表
         myChart.setOption({
-          title: { text: '用户喜爱频道数量统计表', textAlign: 'auto' },
-          tooltip: {},
-          xAxis: {
-            data: ['历史', '财经', '军事', '健康', '科技', '体育'],
+          title: {
+            text: '某站点用户访问来源',
+            subtext: '纯属虚构',
+            left: 'center',
           },
-          yAxis: {},
+          tooltip: {
+            trigger: 'item',
+          },
+          legend: {
+            orient: 'vertical',
+            left: 'left',
+          },
           series: [
             {
-              name: '用户量',
-              type: 'bar',
-              data: [5, 20, 36, 10, 10, 2200],
+              name: '访问来源',
+              type: 'pie',
+              radius: '50%',
+              data: [
+                { value: 1048, name: '搜索引擎' },
+                { value: 735, name: '直接访问' },
+                { value: 580, name: '邮件营销' },
+                { value: 484, name: '联盟广告' },
+                { value: 300, name: '视频广告' },
+              ],
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)',
+                },
+              },
             },
           ],
         })
