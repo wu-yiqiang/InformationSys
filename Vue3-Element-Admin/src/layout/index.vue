@@ -86,7 +86,7 @@ export default defineComponent({
       flex-direction: column;
     }
     .top {
-      background: #fff;
+      background: #304156;
     }
     .main {
       flex: 1;

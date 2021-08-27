@@ -5,8 +5,9 @@ const Home = () => import('@/views/home/index.vue')
 // const Statistics = () => import('@/views/statistics/index.vue')
 const Userstatistics = () => import('@/views/statistics/userStatistics.vue')
 const Datastatistics = () => import('@/views/statistics/dataStatistics.vue')
+const Systemstatistics = () => import('@/views/statistics/systemStatistics.vue')
 // 导入SVG图片
-const UserstatisticsSVG = () => '@/'
+// const UserstatisticsSVG = () => '@/'
 export default [
   {
     path: '/home',
@@ -51,6 +52,14 @@ export default [
         component: Datastatistics,
         meta: {
           title: '数据统计',
+        },
+      },
+      {
+        path: '/systemStatistics',
+        name: 'systemStatistics',
+        component: Systemstatistics,
+        meta: {
+          title: '系统分析',
         },
       },
     ],

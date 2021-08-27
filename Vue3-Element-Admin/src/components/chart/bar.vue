@@ -12,19 +12,9 @@ export default defineComponent({
     id: {
       required: true,
     },
-    echarts: {
-      required: true,
-    },
-    width: {
-      required: true,
-    },
-    height: {
-      required: true,
-    },
   },
   setup(props) {
     const name = props.id
-    console.log(name)
     // 初始化echarts
     let initChart = () => {
       let newPromise = new Promise(resolve => {
@@ -32,11 +22,11 @@ export default defineComponent({
       })
       //然后异步执行echarts的初始化函数
       newPromise.then(() => {
-        //  此dom为echarts图标展示dom
+        // 此dom为echarts图标展示dom
         let myChart = echarts.init(document.getElementById(name))
         // 绘制图表
         myChart.setOption({
-          title: { text: '用户喜爱频道数量统计表', textAlign: 'auto' },
+          title: { text: '用户频道统计', left: 'center' },
           tooltip: {},
           xAxis: {
             data: ['历史', '财经', '军事', '健康', '科技', '体育'],
@@ -46,7 +36,7 @@ export default defineComponent({
             {
               name: '用户量',
               type: 'bar',
-              data: [5, 20, 36, 10, 10, 2200],
+              data: [5, 20, 36, 10, 10, 200],
             },
           ],
         })

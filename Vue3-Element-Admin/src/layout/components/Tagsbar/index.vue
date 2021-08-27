@@ -102,7 +102,7 @@ export default defineComponent({
 .tags-container {
   height: 32px;
   width: 100%;
-  background: #fff;
+  background: #304156;
   border-bottom: 1px solid #e0e4ef;
   &.hide {
     display: none;

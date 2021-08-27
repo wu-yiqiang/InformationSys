@@ -1,54 +1,38 @@
 <template>
   <div class="userStatistic">
-    <div class="top_box">
+    <div class="frist_box">
       <!-- 频道统计图 -->
-      <bar-chart
-        :id="id"
-        :echarts="echarts"
-        :width="width"
-        :height="height"
-      ></bar-chart>
+      <bar-chart :id="ageCharts"></bar-chart>
       <!-- 性别统计图 -->
-      <pie-chart
-        :ids="ids"
-        :echarts="echarts"
-        :width="width"
-        :height="height"
-      ></pie-chart>
+      <pie-chart :id="genderCharts"></pie-chart>
     </div>
     <!-- 第二层 -->
-    <div class="top_box">
-      <!-- <bar-chart :id="ageCharts" :echarts="echarts"></bar-chart> -->
-      <div id="genderCharts">sdd</div>
-      <div id="genderCharts">性别sdss统计图</div>
+    <div class="second_box">
+      <timeBarChart :id="timeBarChart"></timeBarChart>
+      <timeBarChart :id="timeBarCharts"></timeBarChart>
     </div>
   </div>
 </template>
 <script>
-import {
-  defineComponent,
-  onBeforeMount,
-  onMounted,
-  ref,
-  toRefs,
-  toRef,
-  reactive,
-  readonly,
-  computed,
-} from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 // 导入频道直方图
 import barChart from '@/components/chart/bar.vue'
 // 导入性别饼状图
 import pieChart from '@/components/chart/pie.vue'
+// 用户时分布直方图
+import timeBarChart from '@/components/chart/timeBar.vue'
 export default defineComponent({
   name: 'template',
   components: {
     barChart,
     pieChart,
+    timeBarChart,
   },
   setup() {
-    const id = ref('ageCharts')
-    const ids = ref('genderChart')
+    const ageCharts = ref('ageCharts')
+    const genderCharts = ref('genderCharts')
+    const timeBarChart = ref('timeBarChart')
+    const timeBarCharts = ref('timeBarCharts')
     /**
      * 查询元素宽高
      */
@@ -65,8 +49,10 @@ export default defineComponent({
       let { domwidth, domheight } = queryWidthHeight()
     })
     return {
-      id,
-      ids,
+      ageCharts,
+      genderCharts,
+      timeBarChart,
+      timeBarCharts,
     }
   },
 })
@@ -75,7 +61,7 @@ export default defineComponent({
 .userStatistic {
   width: 100%;
   height: 100%;
-  .top_box {
+  .frist_box {
     display: flex;
     width: 100%;
     height: 50%;
@@ -85,6 +71,20 @@ export default defineComponent({
       height: 100%;
     }
     #genderCharts {
+      width: 50%;
+      height: 100%;
+    }
+  }
+  .second_box {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: space-around;
+    #timeBarChart {
+      width: 50%;
+      height: 100%;
+    }
+    #timeBarCharts {
       width: 50%;
       height: 100%;
     }
