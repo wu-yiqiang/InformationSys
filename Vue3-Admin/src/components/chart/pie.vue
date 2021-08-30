@@ -9,12 +9,14 @@ export default defineComponent({
   name: 'pieChart',
   components: {},
   props: {
-    id: {
+    config: {
       required: true,
+      type: Object,
     },
   },
   setup(props) {
-    const name = props.id
+    const name = props.config.id
+    let chartOptions = props.config.config
     // 初始化echarts
     let initChart = () => {
       let newPromise = new Promise(resolve => {
@@ -25,10 +27,10 @@ export default defineComponent({
         //  此dom为echarts图标展示dom
         let myChart = echarts.init(document.getElementById(name))
         // 绘制图表
-        myChart.setOption({
+        let configObject = {
+
           title: {
-            text: '用户群体分析',
-            // subtext: '纯属虚构',
+            text: '数据分析',
             left: 'center',
           },
           tooltip: {
@@ -40,9 +42,9 @@ export default defineComponent({
           },
           series: [
             {
-              name: '访问来源',
+              name: '',
               type: 'pie',
-              radius: '70%',
+              radius: '75%',
               data: [
                 { value: 1000, name: '10岁以下' },
                 { value: 735, name: '10-15岁' },
@@ -50,17 +52,17 @@ export default defineComponent({
                 { value: 214, name: '18-22岁' },
                 { value: 300, name: '23-30岁' },
                 { value: 464, name: '31-35岁' },
-                { value: 400, name: '36-40岁' },
-                { value: 364, name: '31-35岁' },
-                { value: 300, name: '36-40岁' },
-                { value: 784, name: '41-45岁' },
-                { value: 300, name: '46-50岁' },
-                { value: 784, name: '51-55岁' },
-                { value: 300, name: '56-60岁' },
-                { value: 984, name: '66-70岁' },
-                { value: 700, name: '71-75岁' },
-                { value: 600, name: '76-80岁' },
-                { value: 300, name: '80岁以上' },
+                // { value: 400, name: '36-40岁' },
+                // { value: 364, name: '31-35岁' },
+                // { value: 300, name: '36-40岁' },
+                // { value: 784, name: '41-45岁' },
+                // { value: 300, name: '46-50岁' },
+                // { value: 784, name: '51-55岁' },
+                // { value: 300, name: '56-60岁' },
+                // { value: 984, name: '66-70岁' },
+                // { value: 700, name: '71-75岁' },
+                // { value: 600, name: '76-80岁' },
+                // { value: 300, name: '80岁以上' },
               ],
               emphasis: {
                 itemStyle: {
@@ -71,7 +73,9 @@ export default defineComponent({
               },
             },
           ],
-        })
+        }
+        Object.assign(configObject,chartOptions)
+        myChart.setOption(configObject)
         window.onresize = function() {
           //自适应大小
           myChart.resize()
