@@ -2,77 +2,106 @@
   <div :id="name"></div>
 </template>
 <script>
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 // 导入echarts
 import * as echarts from 'echarts'
 export default defineComponent({
-  name: 'timeAxis',
+  name: 'AreaChartwithTimeAxis',
   components: {},
   props: {
-    id: {
+    config: {
       required: true,
+      type: Object,
     },
   },
   setup(props) {
-    const name = props.id
+    const name = props.config.id
+    let chartOptions = props.config.config
     // 初始化echarts
-    var myChart
-    let initChart = data => {
+    let initChart = () => {
       let newPromise = new Promise(resolve => {
         resolve()
       })
       //然后异步执行echarts的初始化函数
       newPromise.then(() => {
-        // 此dom为echarts图标展示dom
-        myChart = echarts.init(document.getElementById(name))
+        //  此dom为echarts图标展示dom
+        let myChart = echarts.init(document.getElementById(name), 'dark')
         // 绘制图表
-        myChart.setOption({
-          title: {
-            text: '近24小时集群性能',
-            left: 'center',
-          },
+        var base = +new Date(1988, 9, 3)
+        var oneDay = 24 * 3600 * 1000
+
+        var data = [[base, Math.random() * 300]]
+
+        for (var i = 1; i < 30; i++) {
+          var now = new Date((base += oneDay))
+          data.push([
+            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+            Math.round((Math.random() - 0.5) * 20 + data[i - 1][1]),
+          ])
+        }
+        let configObject = {
           tooltip: {
             trigger: 'axis',
-            formatter: function(params) {
-              params = params[0]
-              var date = new Date(params.name)
-              return (
-                date.getDate() +
-                '/' +
-                (date.getMonth() + 1) +
-                '/' +
-                date.getFullYear() +
-                ' : ' +
-                params.value[1]
-              )
+            position: function(pt) {
+              return [pt[0], '10%']
             },
-            axisPointer: {
-              animation: false,
+          },
+          title: {
+            left: 'center',
+            text: '近30天日均流量趋势',
+          },
+          grid: {
+            x: 80,
+            y: 60,
+            x2: 80,
+            y2: 60,
+            // width: {totalWidth} - x - x2,
+            // height: {totalHeight} - y - y2,
+            backgroundColor: 'rgba(0,0,0,0)',
+            borderWidth: 1,
+            borderColor: '#ccc',
+          },
+          toolbox: {
+            feature: {
+              //dataZoom: {
+              //   yAxisIndex: 'none',
+              // },
+              //restore: {},
+              //saveAsImage: {},
             },
           },
           xAxis: {
             type: 'time',
-            splitLine: {
-              show: false,
-            },
+            boundaryGap: false,
           },
           yAxis: {
             type: 'value',
             boundaryGap: [0, '100%'],
-            splitLine: {
-              show: false,
-            },
           },
+          dataZoom: [
+            {
+              type: 'inside',
+              start: 0,
+              end: 20,
+            },
+            {
+              start: 0,
+              end: 20,
+            },
+          ],
           series: [
             {
               name: '模拟数据',
               type: 'line',
-              showSymbol: false,
-              hoverAnimation: false,
+              smooth: true,
+              symbol: 'none',
+              areaStyle: {},
               data: data,
             },
           ],
-        })
+        }
+        Object.assign(configObject, chartOptions)
+        myChart.setOption(configObject)
         window.onresize = function() {
           //自适应大小
           myChart.resize()
@@ -81,34 +110,6 @@ export default defineComponent({
     }
     onMounted(() => {
       initChart()
-      setInterval(function() {
-        var data = []
-        var now = +new Date(2000, 9, 3)
-        var oneDay = 24 * 3600 * 1000
-        var value = Math.random() * 1000
-        function randomData() {
-          now = new Date(+now + oneDay)
-          value = value + Math.random() * 21 - 10
-          return {
-            name: now.toString(),
-            value: [
-              [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-              Math.round(value),
-            ],
-          }
-        }
-
-        for (var i = 0; i < 100; i++) {
-          data.push(randomData())
-        }
-        myChart.setOption({
-          series: [
-            {
-              data: data,
-            },
-          ],
-        })
-      }, 2000)
     })
     return {
       name,

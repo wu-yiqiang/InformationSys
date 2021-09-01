@@ -21,8 +21,10 @@
   ],
   "dependencies": {
     "axios": "^0.21.1",
+    "china.js": "^4.2.0",
     "echarts": "^5.1.2",
     "echarts-gl": "^2.0.8",
+    "i": "^0.3.6",
     "vue": "^3.0.5",
     "vue-router": "^4.0.5",
     "vuex": "^4.0.0"

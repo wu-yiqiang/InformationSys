@@ -25,10 +25,9 @@ export default defineComponent({
       //然后异步执行echarts的初始化函数
       newPromise.then(() => {
         //  此dom为echarts图标展示dom
-        let myChart = echarts.init(document.getElementById(name))
+        let myChart = echarts.init(document.getElementById(name), 'dark')
         // 绘制图表
         let configObject = {
-
           title: {
             text: '数据分析',
             left: 'center',
@@ -52,17 +51,6 @@ export default defineComponent({
                 { value: 214, name: '18-22岁' },
                 { value: 300, name: '23-30岁' },
                 { value: 464, name: '31-35岁' },
-                // { value: 400, name: '36-40岁' },
-                // { value: 364, name: '31-35岁' },
-                // { value: 300, name: '36-40岁' },
-                // { value: 784, name: '41-45岁' },
-                // { value: 300, name: '46-50岁' },
-                // { value: 784, name: '51-55岁' },
-                // { value: 300, name: '56-60岁' },
-                // { value: 984, name: '66-70岁' },
-                // { value: 700, name: '71-75岁' },
-                // { value: 600, name: '76-80岁' },
-                // { value: 300, name: '80岁以上' },
               ],
               emphasis: {
                 itemStyle: {
@@ -92,4 +80,9 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div{
+  width: 100%;
+  height: 100%;
+}
+</style>

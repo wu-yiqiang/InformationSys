@@ -67,7 +67,8 @@ Object.entries(Components).forEach(([key, component]) => {
 // 错误日志
 import useErrorHandler from './error-log'
 useErrorHandler(app)
-
+// 世界地图
+// import './data/map/js/china.js'
 app
   .use(ElementPlus, {
     locale,
