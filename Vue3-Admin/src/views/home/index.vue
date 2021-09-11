@@ -1,12 +1,78 @@
 <template>
   <div class="home">
-    <div class="oneLine">
+    <!-- 选项 -->
+    <el-card class="box-card oneLine">
+      <el-row :gutter="24">
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text"></div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="short-cut">
+            <div class="graphic"></div>
+            <div class="text">待办实现</div>
+          </div>
+        </el-col>
+      </el-row>
+    </el-card>
+    <!-- /选项 -->
+    <div class="twoLine">
       <!-- 日历 -->
       <el-card class="box-card calendar">
-        <el-calendar v-model="value"></el-calendar>
+        考勤记录
+        <Calendar class-name="select-mode" :remarks="remarks" monFirst="true" />
       </el-card>
       <!-- 日历 -->
-
       <!-- 我的待办 -->
       <el-card class="box-card workToDo">
         我的待办
@@ -23,13 +89,17 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-
+import { defineComponent, ref } from 'vue'
+import Calendar from 'mpvue-calendar'
 export default defineComponent({
   name: 'home',
+  components: {
+    Calendar,
+  },
   data() {
+    const remarks = ref({ '2021-1-13': 'some tings' })
     return {
-      value: new Date(),
+      remarks,
     }
   },
   setup() {},
@@ -41,15 +111,44 @@ export default defineComponent({
   color: $mainColor;
   height: 100%;
   .oneLine {
+    width: 100%;
+    .el-card {
+      display: flex;
+      .short-cut {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 10px;
+        .graphic {
+          width: 40px;
+          height: 40px;
+          background-color: aqua;
+          border-radius: 20px;
+        }
+        .text {
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .twoLine {
     display: flex;
-    justify-content: space-around;
-    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
     .calendar {
-      height: 30%;
-      width: 40%;
+      width: 25%;
+      ::v-deep .el-card__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
     }
     .workToDo {
-      width: 40%;
+      width: 65%;
     }
   }
 }
