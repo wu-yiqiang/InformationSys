@@ -1,6 +1,8 @@
 <template>
   <div class="template">
-    频道
+     <el-card class="box-card">
+  沙大师
+</el-card>
   </div>
 </template>
 <script>

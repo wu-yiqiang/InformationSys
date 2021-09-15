@@ -17,6 +17,7 @@ const User = () => import('@/views/user/User.vue')
 const TimeTask = () => import('@/views/task/TimeTask.vue')
 
 // 用户数据
+const Digital = () => import('@/views/digital/index.vue')
 const userDigital = () => import('@/views/digital/user.vue')
 const channelDigital = () => import('@/views/digital/channel.vue')
 export default [
@@ -163,8 +164,8 @@ export default [
     icon: 'digital',
     children: [
       {
-        path: '/user',
-        name: 'user',
+        path: '/Digital/userDigital',
+        name: 'userDigital',
         component: userDigital,
         meta: {
           title: '用户数据',
@@ -172,7 +173,7 @@ export default [
         icon: 'menu',
       },
       {
-        path: '/channel',
+        path: '/Digital/channel',
         name: 'channel',
         component: channelDigital,
         meta: {
